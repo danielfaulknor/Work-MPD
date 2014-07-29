@@ -16,10 +16,9 @@ do
 		if [ ! -e $DIR/mplayer.pid ]
 		then
 			echo "RADIO - Playing Radio"
-			amixer sset PCM 70%
 			mpc stop
 			sleep 10
-			mplayer $url &
+			mplayer $url -softvol -volume 4 &
 			echo $! > $DIR/mplayer.pid
 		fi
 	fi
@@ -32,7 +31,6 @@ do
 			kill `cat $DIR/mplayer.pid`
 			rm $DIR/mplayer.pid
 			sleep 10
-			amixer sset PCM 100%
 			mpc play
 		fi
 	fi

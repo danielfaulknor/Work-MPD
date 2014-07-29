@@ -27,7 +27,7 @@ trap control_c SIGINT
 # Run our apps
 $DIR/phones/phones.sh > $DIR/mpd.log 2>&1 &
 echo $! > $DIR/phones.pid
-$DIR/play/random.php > $DIR/mpd.log 2>&1 &
+$DIR/play/playlistmgr.php > $DIR/mpd.log 2>&1 &
 echo $! > $DIR/random.pid
 $DIR/radio/play.sh > $DIR/mpd.log 2>&1 &
 echo $! > $DIR/radio.pid
